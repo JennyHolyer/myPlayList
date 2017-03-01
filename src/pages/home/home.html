@@ -1,0 +1,28 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>
+            My Play List
+        </ion-title>
+        <ion-buttons end>
+            <button ion-button icon-only (click)="addSong()">
+                <ion-icon ios="ios-add-circle" md="md-add-circle"></ion-icon>
+            </button>
+        </ion-buttons>
+    </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+    <ion-card *ngFor="let song of songs | async" (click)="showOptions(song.$key, song.title, song.artist)">
+        <ion-card-content>
+            <ion-icon ios="ios-musical-note" md="md-musical-note"></ion-icon>&nbsp;&nbsp;{{song.title}}<br>
+
+            <ion-icon ios="ios-microphone" md="md-microphone"></ion-icon>&nbsp;&nbsp;<i>{{song.artist}}</i><br>
+            <!-- <button [navPush]="lyricsPage">Go To Lyrics</button> -->
+
+        </ion-card-content>
+    </ion-card>
+
+    <ion-card-content>
+
+    </ion-card-content>
+</ion-content>
